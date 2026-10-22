@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-uchiha-black: #060609;
+  --color-uchiha-dark: #0b0b12;
+  --color-uchiha-panel: #13121e;
+  --color-uchiha-card: #181726;
+  --color-uchiha-border: #282438;
+  --color-uchiha-muted: #8b859e;
+
+  --color-crimson-blood: #780000;
+  --color-crimson-vermilion: #b31217;
+  --color-crimson-core: #e61919;
+  --color-crimson-flame: #ff3333;
+  --color-crimson-bright: #ff6666;
+
+  --color-chakra-purple: #8b5cf6;
+  --color-chakra-lavender: #c4b5fd;
+  --color-chakra-teal: #10b981;
+  --color-chakra-blue: #3b82f6;
+
+  --drop-shadow-glow-crimson-sm: 0 0 8px rgba(230, 25, 25, 0.45);
+  --drop-shadow-glow-crimson-md: 0 0 16px rgba(255, 30, 30, 0.65);
+  --drop-shadow-glow-crimson-lg: 0 0 32px rgba(255, 30, 30, 0.85);
+
+  --drop-shadow-glow-purple-sm: 0 0 8px rgba(168, 85, 247, 0.45);
+  --drop-shadow-glow-purple-md: 0 0 16px rgba(168, 85, 247, 0.65);
+  --drop-shadow-glow-purple-lg: 0 0 32px rgba(168, 85, 247, 0.85);
+
+  --shadow-glow-crimson: 0 0 25px rgba(230, 25, 25, 0.35);
+  --shadow-glow-purple: 0 0 25px rgba(168, 85, 247, 0.35);
+}
+
+:root {
+  color-scheme: dark;
+  background-color: #060609;
+  color: #ededf2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #060609;
+  min-height: 100vh;
+  min-width: 1024px; /* Desktop-first budget */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #282438;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e61919;
+}
+
+/* Interactive focus ring standard */
+:focus-visible {
+  outline: 2px solid #e61919;
+  outline-offset: 2px;
+}
+
+/* Keyframes for dojutsu continuous smooth spin */
+@keyframes eye-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes eye-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(230, 25, 25, 0.5));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(255, 51, 51, 0.85));
+    transform: scale(1.02);
+  }
+}
+
+@keyframes rinnegan-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 26px rgba(196, 181, 253, 0.85));
+  }
+}
+
+.animate-eye-spin {
+  animation: eye-spin var(--rotation-duration, 12s) linear infinite;
+  transform-origin: 100px 100px;
+}
+
+.animate-eye-pulse {
+  animation: eye-pulse 3s ease-in-out infinite;
+}
+
+.animate-rinnegan-pulse {
+  animation: rinnegan-pulse 4s ease-in-out infinite;
+}
+
+/* Reduced motion disables aggressive continuous rotations & pulses */
+@media (prefers-reduced-motion: reduce) {
+  .animate-eye-spin {
+    animation: none !important;
+  }
+  .animate-eye-pulse {
+    animation: none !important;
+  }
+  .animate-rinnegan-pulse {
+    animation: none !important;
+  }
+}
